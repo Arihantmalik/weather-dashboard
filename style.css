@@ -39,3 +39,15 @@ body {
   justify-content: center;
   gap: 15px;
 }
+#cityInput,
+.btn {
+  border-radius: 25px;
+}
+
+#Search {
+  border-radius: 25px;
+}
+#Location {
+  border-radius: 25px;
+}
+

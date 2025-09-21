@@ -12,10 +12,10 @@
 
   <h1 class="mb-4">🌤️ Weather Dashboard</h1>
 
-  <div class="input-group mb-4 w-50">
-    <input type="text" id="cityInput" class="form-control" placeholder="Enter city">
-    <button class="btn btn-primary" onclick="getWeather()">Search</button>
-    <button class="btn btn-success" onclick="useMyLocation()">Use My Location</button>
+  <div class="input-group mb-4 w-50 gap-2">
+    <input type="text" id="cityInput" class="form-control " placeholder="Enter city">
+    <button class="btn btn-primary" id="Search" onclick="getWeather()">Search</button>
+    <button class="btn btn-success" id="Location" onclick="useMyLocation()">Use My Location</button>
   </div>
 
   <div id="weatherResult" class="text-center w-75 mb-4"></div>

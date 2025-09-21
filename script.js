@@ -4,13 +4,9 @@ window.onload = function() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       position => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        getWeatherByCoords(lat, lon);
+        getWeatherByCoords(position.coords.latitude, position.coords.longitude);
       },
-      () => {
-        console.log("Geolocation not allowed or unavailable");
-      }
+      () => console.log("Geolocation not allowed or unavailable")
     );
   }
 };
@@ -18,7 +14,6 @@ window.onload = function() {
 async function getWeather() {
   const city = document.getElementById("cityInput").value;
   if (!city) return alert("Please enter a city");
-
   await fetchWeather(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`,
     `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`
@@ -28,11 +23,7 @@ async function getWeather() {
 function useMyLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      position => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
-        getWeatherByCoords(lat, lon);
-      },
+      position => getWeatherByCoords(position.coords.latitude, position.coords.longitude),
       () => alert("Geolocation not allowed or unavailable.")
     );
   } else {
@@ -72,7 +63,6 @@ async function fetchWeather(urlCurrent, urlForecast) {
     `;
 
     const dailyForecast = dataForecast.list.filter(item => item.dt_txt.includes("12:00:00"));
-
     document.getElementById("forecastTitle").innerText = "5-Day Forecast";
     document.getElementById("forecastResult").innerHTML = dailyForecast.map(day => {
       const date = new Date(day.dt_txt);
@@ -85,7 +75,6 @@ async function fetchWeather(urlCurrent, urlForecast) {
         </div>
       `;
     }).join("");
-
   } catch (error) {
     alert(error.message);
   }

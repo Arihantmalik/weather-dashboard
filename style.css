@@ -39,15 +39,9 @@ body {
   justify-content: center;
   gap: 15px;
 }
-#cityInput,
-.btn {
-  border-radius: 25px;
+#weatherResult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-
-#Search {
-  border-radius: 25px;
-}
-#Location {
-  border-radius: 25px;
-}
-

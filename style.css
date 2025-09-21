@@ -45,3 +45,12 @@ body {
   align-items: center;
   flex-direction: column;
 }
+#Location {
+    border-radius: 25px;
+}
+#Search {
+    border-radius: 25px;
+}
+#cityInput {
+    border-radius: 25px;
+}
